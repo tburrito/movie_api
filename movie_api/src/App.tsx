@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react'
-import './App.css'
 
 let timer = null
 
@@ -43,8 +42,8 @@ function App() {
       <p>Searching for: {text}</p>
       <div id="search-results">
         {searchResults.map((movie) => (
-          <div>
-            <h1>{movie.show.name}</h1>
+          <div className='flex'>
+            <h2>{movie.show.name}</h2>
           </div>
         ))}
       </div>
