@@ -24,6 +24,10 @@ function App() {
     }
   }
 
+  async function getYear(str){
+    return str.substring(0,4)
+  }
+
   function debounce(newText){    
     setText(newText)
     if (timer)
@@ -37,13 +41,17 @@ function App() {
 
   return (
     <div id="main">
-      <div>Search movies here!!</div>
-      <input type="text" onChange={(e) => {debounce(e.target.value)}}/>
+      <h1 className='font-bold'>Search movies here!!</h1>
+      <input type="text" className="border-2 rounded-2xl p-1" onChange={(e) => {debounce(e.target.value)}}/>
       <p>Searching for: {text}</p>
-      <div id="search-results">
+      <div id="search-results" className='flex flex-row justify-start mx-3 mt-5 flex-wrap items-center align-middle'>
         {searchResults.map((movie) => (
-          <div className='flex'>
-            <h2>{movie.show.name}</h2>
+          <div className='border-2 border-black w-50 mx-3 h-90 my-2 rounded-2xl overflow-hidden align-middle items-center '>
+            <img src={movie.show.image?.medium ||  "/nonamejpg.jpg"} alt="" className='w-full rounded-md h-69 border-b-2'/>
+            <div className='ml-0.5'>
+              <h2 className='mx-auto align-middle font-medium mt-1'>{movie.show.name}</h2>
+              <p className='text-[13px]'>{movie.show.premiered}</p>
+            </div>
           </div>
         ))}
       </div>
