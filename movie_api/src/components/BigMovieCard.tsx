@@ -44,7 +44,7 @@ const BigMovieCard = ({movie, scoreColor}) => {
 
   return (
     <div className='w-[65dvw] h-[60dvh] rounded-2xl bg-[#212020] outline outline-[#2a2a2a] p-5 gap-8 flex items-center '>
-      <img src={movie.show.image?.original ||  "/nonamejpg.jpg"} className='w-78 rounded-2xl ml-4'/>
+      <img src={movie.show.image?.original || `${import.meta.env.BASE_URL}nonamejpg.jpg`} className='w-78 rounded-2xl ml-4'/>
       <div className='block flex-col justify-start  border-white w-full h-full pt-3'>
         <div className='flex justify-between'>
           <div className='flex flex-row gap-4'>
