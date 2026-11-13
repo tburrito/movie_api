@@ -1,0 +1,5 @@
+{
+  "installCommand": "npm ci --prefix movie_api --include=optional",
+  "buildCommand": "npm run build --prefix movie_api",
+  "outputDirectory": "movie_api/dist"
+}
