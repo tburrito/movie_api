@@ -74,9 +74,9 @@ function App() {
           <div className='bg-[#212020] outline outline-[#2a2a2a] w-50 h-95 rounded-2xl overflow-hidden hover:cursor-pointer hover:outline-4 hover:outline-[#636363] hover:drop-shadow-xl hover:drop-shadow-[#101010] scale-100 transition-all duration-75 hover:scale-103' onClick={()=>setSelectedMovie(movie)}>
             <div className='relative w-full'>
               <img src={movie.show.image?.medium ||  "/nonamejpg.jpg"} alt="" className='w-full block rounded-md h-69 border-b-2'/>
-              <div className={`${scoreColor(Math.round(movie.score*100))} absolute flex flex-row drop-shadow-2xl drop-shadow-black align-middle items-center left-2 bottom-2.5 py-1.5 text-[12px] px-1 rounded-full  text-white`}>
-                <p className='pl-1'>{Math.min(Math.round(movie.score * 100), 100)}%</p>
-                {Math.round(movie.score *100) > 50? <ThumbsUp className='scale-60'/> : <ThumbsDown className='scale-60 pt-1'/>}
+              <div className={`${scoreColor(Math.round(movie.show.rating.average*10))} absolute flex flex-row drop-shadow-2xl drop-shadow-black align-middle items-center left-2 bottom-2.5 py-1.5 text-[12px] px-1 rounded-full  text-white`}>
+                <p className='pl-1'>{Math.min(Math.round(movie.show.rating.average*10))}%</p>
+                {Math.round(movie.show.rating.average*10) > 50? <ThumbsUp className='scale-60'/> : <ThumbsDown className='scale-60 pt-1'/>}
               </div>
             </div>
             <div className='ml-1'>

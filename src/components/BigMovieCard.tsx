@@ -49,11 +49,11 @@ const BigMovieCard = ({movie, scoreColor}) => {
         <div className='flex justify-between'>
           <div className='flex flex-row gap-4'>
             <h1 className=' border-white w-fit font-bold text-3xl'>{movie.show.name}</h1>
-            <div className={`${scoreColor(Math.min(Math.round(movie.score * 100)))} w-fit h-fit py-2 rounded-full flex justify-center items-center align-middle px-2 gap-0.5`}>
+            <div className={`${scoreColor(Math.min(Math.round(movie.show.rating.average*10)))} w-fit h-fit py-2 rounded-full flex justify-center items-center align-middle px-2 gap-0.5`}>
               <p>
-                {Math.min(Math.round(movie.score * 100))}%
+                {Math.min(Math.round(movie.show.rating.average*10))}%
               </p>
-              {Math.min(Math.round(movie.score * 100)) < 45 ? <ThumbsDown className='scale-75'/> : <ThumbsUp className='scale-75'/>}
+              {Math.min(Math.round(movie.show.rating.average*10)) < 45 ? <ThumbsDown className='scale-75'/> : <ThumbsUp className='scale-75'/>}
             </div>
           </div>
           <button className='bg-blue-600 text-white cursor-pointer rounded-2xl px-3 py-1 h-fit ' onClick={()=>{setShowEpisodes(!showEpisodes)}}>{!showEpisodes ? "Show seasons" : "Hide seasons"}</button>
@@ -81,7 +81,7 @@ const BigMovieCard = ({movie, scoreColor}) => {
                               </div>
                             </div>
                             <h2 className='text-[#ababab]'>{episode.airdate}</h2>
-                            <div className='text-[12px] text-[#c6c6c6]'>
+                            <div className='text-[12px] text-[#c6c6c6] overflow-scroll'>
                               {episode.summary ? parse(episode.summary) : ""}
                             </div>
                           </div>
