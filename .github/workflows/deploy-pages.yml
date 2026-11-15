@@ -14,10 +14,6 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
-defaults:
-  run:
-    working-directory: movie_api
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +29,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: movie_api/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -50,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: movie_api/dist
+          path: dist
 
       - name: Deploy
         id: deployment
